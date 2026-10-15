@@ -1,0 +1,9 @@
+# Relative path is resolved against this YAML file's directory.
+path: ../data/xray
+train: images/train
+val: images/val
+test: images/test
+names:
+  - porosity
+  - crack
+  - inclusion

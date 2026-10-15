@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ndt-defect-detection"
+version = "0.1.0"
+description = "Industrial X-ray defect detection: reproducible demo, YOLO training and inspection UI"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "AGPL-3.0-only"
+dependencies = ["numpy>=1.26,<3", "Pillow>=10.1,<13", "opencv-python-headless>=4.9,<6", "PyYAML>=6,<7"]
+
+[project.optional-dependencies]
+ui = ["streamlit>=1.50,<2"]
+train = ["ultralytics>=8.3,<9"]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1"]
+
+[project.scripts]
+ndt = "ndt.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
